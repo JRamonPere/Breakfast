@@ -8,20 +8,29 @@
     <title>Petit Café</title>
     <link rel="icon" href="/images/icon.png">
     <link rel="stylesheet" href="/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+        </style>
 </head>
 
 <body>
+    <aside id="menu_oculto" class="menu_oculto">
+        <a href="javascript:void(0)" class="botao_fechar" onclick="menu_fechar()">&times;</a>
+        <a href="">Receitas</a>
+        <a href="">Locais</a>
+        <a href="">Avaliações</a>
+    </aside>
     <div class="cabeçalho">
         <div class="navbar">
             <ul class="navlist">
                 <li>
-                    <span class="botao_menu point" id="botao_menu" onclick="abrir_menu()">&#9776;</span>
+                    <span class="botao_menu" id="botao_menu" onclick="abrir_menu()">&#9776;</span>
                 </li>
                 <li>
                     <a href="">SOBRE</a>
                 </li>
                 <li>
-                    <img src="/images/Petit Café (4).png" alt="">
+                    <img class="nav_logo" src="/images/Petit Café (5).png" alt="">
                 </li>
                 <li>
                     <a href="">LOGIN</a>
@@ -32,16 +41,20 @@
             </ul>
         </div>
     </div>
-    <aside id="menu_oculto" class="menu_oculto">
-        <a href="javascript:void(0)" class="botao_fechar" onclick="menu_fechar()">&times;</a>
-        <a href="">Receitas</a>
-        <a href="">Locais</a>
-        <a href="">Avaliações</a>
-    </aside>
     <div class="container">
+        <div class="box">
+            <h2>Valorize o café da manhã: um momento para saborear o presente.</h2>
+            <div class="conteudo_txt">
+                    O portunidade única de conexão com a família, um momento para sentar juntos à mesa e conversar antes de começar a correria do dia. Não deixe de valorizar esse momento tão especial, pois ele pode influenciar positivamente o seu dia inteiro.
+    
+            </div>
+        </div>
+    </div>
+    <div class="footer">
 
     </div>
-
-</body>
+    </body>
 </html>
-<script src="/script.js"></script>
+<script src="/script.js"></script> 
+
+
