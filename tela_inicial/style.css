@@ -1,0 +1,312 @@
+*{
+    margin: 0;
+    padding: 0;   
+    box-sizing: border-box;
+    font-family: 'Roboto';
+    outline: none;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.cabeçalho {
+    height: 16vh;
+    width: 100vw;
+    background-color: transparent;  
+    top: 0;
+    position: absolute;
+}
+.navbar{
+    align-items: center;
+    width: 100vw;
+    height: 16vh;
+    
+}
+.navlist {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 16vh;
+    width: 100vw;
+}
+.navlist {
+    width: 100vw;
+}
+.navlist li, a {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #ffff;
+    list-style: none;
+    text-decoration: none;
+    font-size: 19px;
+    }
+.botao_menu {
+    font-size: 24px;
+}
+
+.menu_oculto {
+    height: 95vh;
+    width: 0px;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #FFAF1D;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 30px;
+}
+.menu_oculto a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: #ffff;
+    font-size: 20px;
+    display: block;
+    transition: 0.3s;
+}
+.botao_menu {
+    color: #ffff;
+    font-size:30px; 
+    cursor: pointer;
+    padding: 10px;
+}
+.menu_oculto a:hover {
+    font-size: 24px;
+}
+.botao_fechar {
+    color: #ffff;
+    position: absolute;
+    margin-top: -30px;
+    right: 25px;
+    margin-left: 50px;
+}
+.container{
+    display: flex;
+    align-items: center;
+    height: 95vh;
+    width: 100vw;
+    background-image: url(/images/img_fundo_index\(cortada\)\ ofuscada\ 2.jpg);
+    
+    
+}
+  .box {
+      margin-top: 90px;
+      margin-left: 40px;
+      width: 28vw;
+      height: 400px;
+}
+.box h2 {
+    font-size: 35px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    
+}
+.conteudo_txt{
+    margin-top: 30px;
+    height: 225px;
+    width: 29vw;
+    color: #ffff;
+    font-size: 25px;
+} 
+.popup {
+    background-color: rgb(0,0,0,0.5);
+    position:fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+}
+ .disable{
+    display: none;
+}  
+.conteudo-popup{
+    width: 330px;
+    padding: 30px 15px;
+    margin: 50px auto;
+    background-color: rgb(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 20px 35px rgb(255, 175, 29, 0.3);
+    border: 0.5px solid rgb(255, 175, 29);
+    color: #ffff;
+}
+.fechar-popup {
+    display: flex;
+    justify-content: end;
+    margin-top: -40px;
+    margin-right: -15px;
+}
+.fechar-popup a {
+    font-size: 23px;
+} 
+.conteudo-popup h1{
+    font-size: 28px;
+    color:#fff;
+    margin-bottom: 19px;
+}
+.conteudo-popup form input{
+    width: 92%;
+    border: 1px solid #fff;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background: #ffff;
+}
+.conteudo-popup button {
+    font-size: 16px;
+    margin-top: 28.8px;
+    padding: 10px 0;
+    border-radius: 20px;
+    border: none;
+    width: 90%;
+    cursor: pointer;
+    background-color:rgb(17, 107, 143, 0.877);
+    
+    color: #ffff;
+}
+.conteudo-popup button:hover {
+    background-color:rgb(17, 107, 143);
+}
+.conteudo-popup input:focus{
+    border: 1px solid rgb(192, 192, 192);
+}
+.lembrar_senha{
+    margin-top: 3px;
+}
+.lembrar_senha input{
+    margin-top: 3.2px;
+    height: 14px;
+    width: 14px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.lembrar_senha label{
+    font-size: 13px;
+}
+.lembrar_senha a {
+    color: rgb(17, 107, 143);
+    text-decoration: none;   
+}
+.cadastrar{
+    font-size: 13px;
+    margin-top: 22.4px;
+    color: #ffff;
+}
+.cadastrar a{
+    color: rgb(17, 107, 143);
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.popup-cadastro {
+    background-color: rgb(0,0,0,0.5);
+    position:fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+}
+ .disable-cadastro{
+    display: none;
+}  
+.conteudo-popup-cadastro{
+    width: 330px;
+    padding: 30px 15px;
+    margin: 50px auto;
+    background-color: rgb(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 20px 35px rgb(255, 175, 29, 0.3);
+    border: 0.5px solid rgb(255, 175, 29);
+    color: #ffff;
+}
+.fechar-popup-cadastro {
+    display: flex;
+    justify-content: end;
+    margin-top: -40px;
+    margin-right: -15px;
+}
+.fechar-popup-cadastro a {
+    font-size: 23px;
+} 
+.conteudo-popup-cadastro h1{
+    font-size: 28px;
+    color:#fff;
+    margin-bottom: 19px;
+}
+.conteudo-popup-cadastro form input{
+    width: 92%;
+    border: 1px solid #fff;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background: #ffff;
+}
+.conteudo-popup-cadastro button {
+    font-size: 16px;
+    margin-top: 28.8px;
+    padding: 10px 0;
+    border-radius: 20px;
+    border: none;
+    width: 90%;
+    cursor: pointer;
+    background-color:rgb(17, 107, 143, 0.877);
+    
+    color: #ffff;
+}
+.conteudo-popup-cadastro button:hover {
+    background-color:rgb(17, 107, 143);
+}
+.conteudo-popup input:focus{
+    border: 1px solid rgb(192, 192, 192);
+}
+.lembrar-senha-cadastro{
+    margin-top: 3px;
+}
+.lembrar-senha-cadastro input{
+    margin-top: 3.2px;
+    height: 14px;
+    width: 14px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.lembrar-senha-cadastro label{
+    font-size: 13px;
+}
+.lembrar-senha-cadastro a {
+    color: rgb(17, 107, 143);
+    text-decoration: none;
+    font-size: 13px;   
+}
+.logar-cadastro{
+    font-size: 13px;
+    margin-top: 22.4px;
+    color: #ffff;
+}
+.termos{
+    color: rgb(17, 107, 143);
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: bold;
+} 
+.logar {
+    font-size: 13px;
+    margin-top: 22.4px;
+    color: #ffff;
+}
+.logar a{
+    color: rgb(17, 107, 143);
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+}

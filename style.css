@@ -1,15 +1,19 @@
 *{
     margin: 0;
     padding: 0;   
-    
+    font-family: 'Roboto'
+}
+
+body {
+    overflow-x: hidden;
 }
 
 .cabeçalho {
     height: 16vh;
     width: 100vw;
-    background-color: transparent;  
+    background-color: #2F1608;  
     top: 0;
-    position: absolute;
+    
 }
 .navbar{
     align-items: center;
@@ -35,20 +39,19 @@
     list-style: none;
     text-decoration: none;
     font-size: 19px;
-    font-family: 'Roboto'
     }
 .botao_menu {
     font-size: 24px;
 }
 
 .menu_oculto {
-    height: 100%;
+    height: 91.8vh;
     width: 0px;
     position: absolute;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #FFAF1D;
+    background-color: #2F1608;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 30px;
@@ -77,34 +80,118 @@
     right: 25px;
     margin-left: 50px;
 }
-.container{
+
+.section-banner{
     display: flex;
     align-items: center;
-    height: 95vh;
-    width: 100vw;
-    background-image: url(/images/img_fundo_index\(cortada\)\ ofuscada\ 2.jpg);
-    background-size: cover;
-    
-}
-.box {
-    margin-top: 90px;
-    margin-left: 40px;
-    width: 28vw;
-    height: 400px;
-}
-.box h2 {
-    font-size: 35px;
-    color: #fff;
-    display: flex;
     justify-content: center;
+    height: fit-content;
+    margin: 30px;
+}
+
+.section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.section-banner .container .img-banner{
+    justify-content: center;
+    margin-top: 10px;
+    text-align: center;
+}
+.section-banner .container .img-banner h1{
+    margin-bottom: 20px;
+}
+.section-banner .container .form_login{
+    height: fit-content;
+    margin: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.section-banner .container .form_login .form{
+    width:fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-text{
+    height: 40px;
+    width: 380px;
+    border: 1px solid #2F1608;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+
+.login-options a{
+    text-decoration: none;
+    color: #2F1608;
+}
+
+
+.remember-login{
+    display: flex;
+}
+
+.login-options p{
+    font-size: 12px;
+}
+
+.section-banner .container .form_login .login-options{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.buttons-form{
+    margin: 15px;
+    text-align: center;
     
 }
-.conteudo_txt{
-    margin-top: 30px;
-    height: 225px;
-    width: 29vw;
-    color: #ffff;
-    font-size: 25px;
-} 
 
-  
+.buttons-form p{
+    margin-top: 10px;
+    font-size: 12px;
+    color: #2F1608;
+}
+
+.buttons-form .button{
+    width: 170px;
+    height: 30px;
+    border-radius: 5px;
+    border: #2F1608 1px solid;
+}
+
+.buttons-form .button-login{
+    background-color: #2F1608;
+    color: #FFFFFF;
+    margin-top: 20px;
+}
+.button-login:hover {
+    background-color: #FFFFFF; /* Green */
+    color: #2F1608;
+    cursor: pointer;
+  }
+
+  .buttons-form .button-cadastrar{
+    background-color: #FFFFFF;
+    color: #2F1608;
+}
+.button-cadastrar:hover {
+    background-color: #2F1608; /* Green */
+    color: #FFFFFF;
+    cursor: pointer;
+  }
+
+  .buttons-form .button-register{
+    margin-top: 20px;
+    background-color: #2F1608;
+    color: #FFFFFF;
+}
+.button-register:hover {
+    background-color: #FFFFFF; /* Green */
+    color: #2F1608;
+    cursor: pointer;
+  }

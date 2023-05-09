@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petit Café</title>
+    <link rel="icon" href="/images/icon.png">
+    <link rel="stylesheet" href="/tela_inicial/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+    </style>
+</head>
+
+<body>
+    <aside id="menu_oculto" class="menu_oculto">
+        <a href="javascript:void(0)" class="botao_fechar" onclick="menu_fechar()">&times;</a>
+        <a href="">Receitas</a>
+        <a href="">Locais</a>
+        <a href="">Avaliações</a>
+    </aside>
+    <div class="cabeçalho">
+        <div class="navbar">
+            <ul class="navlist">
+                <li>
+                    <span class="botao_menu" id="botao_menu" onclick="abrir_menu()">&#9776;</span>
+                </li>
+                <li>
+                    <a href="">SOBRE</a>
+                </li>
+                <li>
+                    <a href=""><img class="nav_logo" src="/images/Petit Café (5).png" alt=""></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" onclick="mostrar_popup_login()">LOGIN</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" onclick="mostrar_popup_cadastro()">CADASTRO</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="box">
+            <h2>Valorize o café da manhã: um momento para saborear o presente.</h2>
+            <div class="conteudo_txt">
+                A oportunidade única de conexão com a família, um momento para sentar juntos à mesa e conversar antes de
+                começar a correria do dia. Não deixe de valorizar esse momento tão especial, pois ele pode influenciar
+                positivamente o seu dia inteiro.
+
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+    </div>
+    <div class="popup disable" id="popup_sim_login">
+        <div class="conteudo-popup">
+            <div class="fechar-popup"><a href="/tela_inicial/inicio.html">&times;</a></div>
+            <h1>LOGIN</h1>
+            <form action="#">
+                <input type="text" placeholder="Email">
+                <input type="password" placeholder="Senha">
+            </form>
+            <div class="lembrar-senha">
+                <input type="checkbox" id="checkbox">
+                <label for="checkbox">Lembrar senha</label>
+            </div>
+            <button>Login</button>
+            <div class="cadastrar">
+                Não possui conta? <a href="#">Cadastre Aqui!</a>
+            </div>
+        </div>
+
+    </div>
+        <div class="popup disable" id="popup_sim_cadastro">
+            <div class="conteudo-popup-cadastro">
+                <div class="fechar-popup-cadastro"><a href="/tela_inicial/inicio.html">&times;</a></div>
+                <h1>CADASTRO</h1>
+                <form action="#">
+                    <input type="text" placeholder="Nome">
+                    <input type="text" placeholder="Email">
+                    <input type="password" placeholder="Senha">
+                    <input type="password" placeholder="Confirmar Senha">
+                </form>
+                <div class="lembrar-senha-cadastro">
+                    <input type="checkbox" id="checkbox">
+                    <label for="checkbox">Concordo com<a href="#" class="termos">Termos & Condiçoes</a></label>
+                </div>
+                <button>Cadastrar</button>
+                <div class="logar">
+                    Já possui conta?<a href="#">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
+<script src="/tela_inicial/script.js"></script>
