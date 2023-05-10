@@ -176,20 +176,20 @@ body {
 .conteudo-popup input:focus{
     border: 1px solid rgb(192, 192, 192);
 }
-.lembrar_senha{
+.lembrar-senha{
     margin-top: 3px;
 }
-.lembrar_senha input{
-    margin-top: 3.2px;
+.lembrar-senha input{
+    margin-top: 1px;
     height: 14px;
     width: 14px;
     vertical-align: middle;
     cursor: pointer;
 }
-.lembrar_senha label{
+.lembrar-senha label{
     font-size: 13px;
 }
-.lembrar_senha a {
+.lembrar-senha a {
     color: rgb(17, 107, 143);
     text-decoration: none;   
 }
