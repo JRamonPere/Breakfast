@@ -8,26 +8,23 @@
     <title>Petit Café</title>
     <link rel="icon" href="/images/icon.png">
     <link rel="stylesheet" href="/tela_inicial/style.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-    </style>
 </head>
-
 <body>
-    <aside id="menu_oculto" class="menu_oculto">
-        <a href="javascript:void(0)" class="botao_fechar" onclick="menu_fechar()">&times;</a>
-        <a href="">Receitas</a>
-        <a href="">Locais</a>
-        <a href="">Avaliações</a>
-    </aside>
+
     <div class="cabeçalho">
         <div class="navbar">
             <ul class="navlist">
+                <aside id="menu_oculto" class="menu_oculto">
+                    <a href="javascript:void(0)" class="botao_fechar" onclick="menu_fechar()">&times;</a>
+                    <a href="">Receitas</a>
+                    <a href="">Locais</a>
+                    <a href="">Avaliações</a>
+                </aside>
                 <li>
                     <span class="botao_menu" id="botao_menu" onclick="abrir_menu()">&#9776;</span>
                 </li>
                 <li>
-                    <a href="">SOBRE</a>
+                    <a href="#sobre_mim">SOBRE</a>
                 </li>
                 <li>
                     <a href=""><img class="nav_logo" src="/images/Petit Café (5).png" alt=""></a>
@@ -44,7 +41,7 @@
     <div class="container">
         <div class="box">
             <h2>Valorize o café da manhã: um momento para saborear o presente.</h2>
-            <div class="conteudo_txt">
+            <div class="conteudo_inicio">
                 A oportunidade única de conexão com a família, um momento para sentar juntos à mesa e conversar antes de
                 começar a correria do dia. Não deixe de valorizar esse momento tão especial, pois ele pode influenciar
                 positivamente o seu dia inteiro.
@@ -52,8 +49,100 @@
             </div>
         </div>
     </div>
-    <div class="footer">
+    <div class="container-conteudo">
+        <div class="container-left">
+            <div class="div-titulo">
+                <spam id="sobre_mim">Sobre mim</sapm>
+            </div>
+            <div class="div-txt">
+                <spam>
+                    Olá, sou José Ramon e criei este site com muito carinho para falar sobre algo que é muito importante
+                    na minha vida: o café da manhã.<br> Desde pequeno, sempre tive um apreço especial por essa refeição
+                    e tudo que ela representa.<br> Além de ser considerada a mais importante do dia, é também o momento
+                    em
+                    que consigo sentar à mesa com a minha família e conversar sobre tudo o que está acontecendo em
+                    nossas vidas. decidi compartilhar minhas experiências e receitas neste site.<br> Aqui você
+                    encontrará desde opções simples para o dia a dia até receitas mais elaboradas para ocasiões
+                    especiais.
+                </spam>
+            </div>
+        </div>
+        <div class="container-right">
+            <img src="/images/foto_eu.png" alt="">
+        </div>
     </div>
+    <div class="conteiner-linha">
+        <div class="linha">
+        </div>
+    </div>
+
+    <div class="container-valores-corpo">
+        <div class="div-titulo">
+            <spam>Valores</sapm>
+        </div>
+        <div class="containar-valores">
+            <div class="valor">
+                <img src="/images/Autonomia.png" alt="">
+                <div class="titulo-img">
+                    <span>AUTONOMIA</span>
+                </div>
+                <div class="texto-img">
+                    <span>Responsabilidade de agir com independência e liberdade, assumindo as consequências de seus
+                        próprios atos.</span>
+                </div>
+            </div>
+            <div class="valor">
+                <img src="/images/responsabilidade.png" alt="">
+                <div class="titulo-img">
+                    <span>RESPONSABILIDADE</span>
+                </div>
+                <div class="texto-img">
+                    <span> Assumir obrigações e agir com compromisso e ética diante das consequências de suas
+                        ações.</span>
+                </div>
+            </div>
+            <div class="valor">
+                <img src="/images/resiliencia.png" alt="">
+                <div class="titulo-img">
+                    <span>RESILIÊNCIA</span>
+                </div>
+                <div class="texto-img">
+                    <span> Superar adversidades e se adaptar às mudanças de forma positiva e construtiva.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="conteiner-linha">
+        <div class="linha">
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-cafe">
+            <img src="/images/icon_footer.png" alt="">
+        </div>
+        <div class="redes">
+            <div class="github">
+                <a href="/https://github.com/JRamonPere">
+                    <img src="/images/github.png" alt="">
+                    <span>/JRamonPere</span>
+                </a>
+            </div>
+            <div class="linkedin">
+                <a href="/https://www.linkedin.com/in/ramon-pereira-5293b5215/">
+                    <img src="/images/linkedin.png" alt="">
+                    <span>/Ramon Pereira</span>
+                </a>
+            </div>
+        </div>
+        <div class="footer-seta">
+            <a href="#">
+                <img src="/images/Seta-Cima-Png-removebg-preview.png" alt="" class="seta-icon">
+            </a>
+        </div>
+    </div>
+
+
+    <!-- Tela de login -->
     <div class="popup disable" id="popup_sim_login">
         <div class="conteudo-popup">
             <div class="fechar-popup"><a href="/tela_inicial/inicio.html">&times;</a></div>
@@ -72,30 +161,30 @@
             </div>
         </div>
 
+        <!-- Tela de Cadastro -->
     </div>
-        <div class="popup disable-cadastro" id="popup_sim_cadastro">
-            <div class="conteudo-popup-cadastro">
-                <div class="fechar-popup-cadastro"><a href="/tela_inicial/inicio.html">&times;</a></div>
-                <h1>CADASTRO</h1>
-                <form action="#">
-                    <input type="text" placeholder="Nome">
-                    <input type="text" placeholder="Email">
-                    <input type="password" placeholder="Senha">
-                    <input type="password" placeholder="Confirmar Senha">
-                </form>
-                <div class="lembrar-senha-cadastro">
-                    <input type="checkbox" id="checkbox">
-                    <label for="checkbox">Concordo com<a href="#" class="termos">Termos & Condiçoes</a></label>
-                </div>
-                <button>Cadastrar</button>
-                <div class="logar">
-                    Já possui conta?<a href="javascript:void(0)" onclick="mostrar_popup_login()">Login</a>
-                </div>
+    <div class="popup disable-cadastro" id="popup_sim_cadastro">
+        <div class="conteudo-popup-cadastro">
+            <div class="fechar-popup-cadastro"><a href="/tela_inicial/inicio.html">&times;</a></div>
+            <h1>CADASTRO</h1>
+            <form action="#">
+                <input type="text" placeholder="Nome">
+                <input type="text" placeholder="Email">
+                <input type="password" placeholder="Senha">
+                <input type="password" placeholder="Confirmar Senha">
+            </form>
+            <div class="lembrar-senha-cadastro">
+                <input type="checkbox" id="checkbox">
+                <label for="checkbox">Concordo com<a href="#" class="termos">Termos & Condiçoes</a></label>
+            </div>
+            <button>Cadastrar</button>
+            <div class="logar">
+                Já possui conta?<a href="javascript:void(0)" onclick="mostrar_popup_login()">Login</a>
             </div>
         </div>
     </div>
     </div>
+    </div>
 </body>
-
 </html>
 <script src="/tela_inicial/script.js"></script>
