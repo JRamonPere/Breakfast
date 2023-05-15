@@ -90,7 +90,7 @@
     align-items: center;
     height: 95vh;
     width: 100%;
-    background-image: url(/images/img_fundo_index.jpg);
+    background-image: url(./images/img_fundo_index.jpg);
 }
   .box {
       margin-top: 90px;
