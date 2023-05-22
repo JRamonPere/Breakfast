@@ -7,19 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Petit Café</title>
     <link rel="icon" href="./images/icon.png">
-    <link rel="stylesheet" href="./style.css">
-    <script src="/site/public/js/funcoes.js"></script>
+    <link rel="stylesheet" href="./style(p).css">
+    <script src="./js/funcoes.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
-<body>
 
+<body>
     <div class="cabeçalho">
         <div class="navbar">
             <ul class="navlist">
                 <aside id="menu_oculto" class="menu_oculto">
                     <a href="javascript:void(0)" class="botao_fechar" onclick="menu_fechar()">&times;</a>
-                    <a href="">Receitas</a>
-                    <a href="">Locais</a>
-                    <a href="">Avaliações</a>
+                    <a href="javascript:void(0)" onclick="mostrar_popup_login()"><img src="images/avaliacao.png"
+                            alt="">Avaliações</a>
+                    <a href="javascript:void(0) " onclick="mostrar_popup_login()"><img src="./images/locais.png" alt="">
+                        Locais</a>
+                    <a href="javascript:void(0) " onclick="mostrar_popup_login()"> <img src="./images/ranking.png"
+                            alt=""> Ranking</a>
+                    <a href="javascript:void(0) " onclick="mostrar_popup_login()"> <img src="./images/receita.png"
+                            alt=""> Receitas</a>
                 </aside>
                 <li>
                     <span class="botao_menu" id="botao_menu" onclick="abrir_menu()">&#9776;</span>
@@ -88,8 +94,8 @@
                     <span>AUTONOMIA</span>
                 </div>
                 <div class="texto-img">
-                    <span>Responsabilidade de agir com independência e liberdade, assumindo as consequências de seus
-                        próprios atos.</span>
+                    <span>Ter autonomia no café da manhã é poder escolher o que é melhor para o seu corpo e
+                        mente.</span>
                 </div>
             </div>
             <div class="valor">
@@ -98,8 +104,8 @@
                     <span>RESPONSABILIDADE</span>
                 </div>
                 <div class="texto-img">
-                    <span> Assumir obrigações e agir com compromisso e ética diante das consequências de suas
-                        ações.</span>
+                    <span> Assumir a responsabilidade por nossas escolhas alimentares, cultivasse um hábito saudável que
+                        reflete em todas as áreas de nossas vidas.</span>
                 </div>
             </div>
             <div class="valor">
@@ -108,7 +114,8 @@
                     <span>RESILIÊNCIA</span>
                 </div>
                 <div class="texto-img">
-                    <span> Superar adversidades e se adaptar às mudanças de forma positiva e construtiva.</span>
+                    <span> Assim como um café da manhã nutritivofortalece para encarar o dia, a resiliência fortalece
+                        para superar os desafios da vida.</span>
                 </div>
             </div>
         </div>
@@ -123,13 +130,13 @@
         </div>
         <div class="redes">
             <div class="github">
-                <a href="/https://github.com/JRamonPere">
+                <a href="https://github.com/JRamonPere">
                     <img src="./images/github.png" alt="">
                     <span>/JRamonPere</span>
                 </a>
             </div>
             <div class="linkedin">
-                <a href="/https://www.linkedin.com/in/ramon-pereira-5293b5215/">
+                <a href="https://www.linkedin.com/in/ramon-pereira-5293b5215/">
                     <img src="./images/linkedin.png" alt="">
                     <span>/Ramon Pereira</span>
                 </a>
@@ -146,11 +153,11 @@
     <!-- Tela de login -->
     <div class="popup disable" id="popup_sim_login">
         <div class="conteudo-popup">
-            <div class="fechar-popup"><a href="./tela_inicial/inicio.html">&times;</a></div>
+            <div class="fechar-popup"><a href="./index.html">&times;</a></div>
             <h1>LOGIN</h1>
             <form action="#">
-                <input type="text" placeholder="Email">
-                <input type="password" placeholder="Senha">
+                <input type="text" placeholder="Email" id="email_input">
+                <input type="password" placeholder="Senha" id="senha_input">
             </form>
             <div class="lembrar-senha">
                 <input type="checkbox" id="checkbox">
@@ -166,7 +173,7 @@
     </div>
     <div class="popup disable-cadastro" id="popup_sim_cadastro">
         <div class="conteudo-popup-cadastro">
-            <div class="fechar-popup-cadastro"><a href="./tela_inicial/inicio.html">&times;</a></div>
+            <div class="fechar-popup-cadastro"><a href="./index.html">&times;</a></div>
             <h1>CADASTRO</h1>
             <form>
                 <input type="text" placeholder="Nome" id="nome">
@@ -187,6 +194,123 @@
     </div>
     </div>
 </body>
+
 </html>
-<script src="./script.js">
+<script>
+    function cadastrar() {
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome.value;
+        var emailVar = email.value;
+        var senhaVar = senha.value;
+        var confirmacaoSenhaVar = confirmarSenha.value;
+
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+
+            //mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+            //finalizarAguardar();
+            return false;
+        }
+        else {
+            alert(`Cadastro realizado`)
+            //setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+
+                setTimeout(mostrar_popup_login(), 2500)
+                limparFormulario();
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+    }
+    function entrar() {
+
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            //setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./receitas(p).html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
 </script>
