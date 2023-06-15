@@ -1,23 +1,23 @@
+create database petitcafe; 
+
 use petitcafe;
 
 create table usuario (
 idUsuario int primary key auto_increment,
-nome varchar (50),
-email varchar (50),
-senha varchar (50)
+nome varchar (45),
+email varchar (45),
+senha varchar (45)
 );
 	
 create table comida (
-idReceita int primary key auto_increment,
+idComida int primary key auto_increment,
 pão int,
 broa int,
 pãoDeQueijo int,
 carolina int,
 ovo int,
 bolo int,
-tapioca int,
-fkUsuario int,
-constraint fkUsuario foreign key (fkUsuario) references usuario (idUsuario)
+tapioca int
 );
 
 create table bebida (
@@ -28,9 +28,7 @@ iorgute int,
 achocolatado int,
 leite int,
 agua int,
-vitamina int,
-fkUsuario_bebida int,
-constraint fkUsuario foreign key (fkUsuario_bebida) references usuario (idUsuario)
+vitamina int
 );
 
 create table acompanhamento (
@@ -43,15 +41,18 @@ goiabada int,
 geleia int,
 queijo int,
 presunto int,
-mortadela int,
-fkUsuario_acom int,
-constraint fkUsuario_acom foreign key (fkUsuario_acom) references usuario (idUsuario)
+mortadela int
+);
+create table cafeDaManha (
+idcafeDaManha int auto_increment,
+fkUsuario int,
+fkComida int,
+fkAcompanhamento int,
+fkBebida int, 
+constraint fkusuario foreign key (fkUsuario) references usuario (idUsuario),
+constraint fkcomida foreign key (fkComida) references comida (idComida),
+constraint fkacompanhamento foreign key (fkAcompanhamento) references acompanhamento (idAcompanhamento),
+constraint fkbebida foreign key (fkBebida) references bebida (idBebida),
+constraint pkcafedamnha primary key (idcafeDaManha, fkUsuario, fkComida)
 );
 
-create table avaliação (
-idAvaliacao int primary key auto_increment,
-comentario varchar (355),
-dtpost datetime,
-fkUsuario_avaliacao int,
-constraint fkUsuario_avaliacao foreign key (fkUsuario_avaliacao) references usuario (idUsuario)
-);

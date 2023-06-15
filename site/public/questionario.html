@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário</title>
+    <link rel="icon" href="./images/icon.png">
+    <link rel="stylesheet" href="./style(p).css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.11/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.11/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="./js/funcoes.js"></script>
+</head>
+
+<body>
+    <div class="cabeçalho-2">
+        <div class="navbar">
+            <ul class="navlist">
+                <aside id="menu_oculto" class="menu_oculto">
+                    <a href="javascript:void(0)" class="botao_fechar" onclick="menu_fechar()">&times;</a>
+                    <a href="./index2(p).html"> <img src="./images/home.png" alt=""> Home</a>
+                    <a href="javascript:void(0)"><img src="./images/questionarioIcon.png" alt=""> Questionário</a>
+                    <a href="./dashboard/dashboard.html"> <img src="./images/ranking.png" alt=""> Dashboard</a>
+                    <a href="./receitas(p).html"> <img src="./images/receita.png" alt=""> Receitas</a>
+                    <a href="javascript:void(0)" onclick="limparSessao()" id="button-sair"> <img
+                            src="./images/logout.png" alt="">Sair</a>
+                </aside>
+                <li>
+                    <span class="botao_menu" id="botao_menu" onclick="abrir_menu()">&#9776;</span>
+                </li>
+                <li>
+                    <a href="#sobre_mim"></a>
+                </li>
+                <li>
+                    <a href=""><img class="nav_logo" src="./images/Petit Café (5).png" alt=""></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" onclick="mostrar_popup_login()"></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" onclick="mostrar_popup_cadastro()"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container-questionario">
+        <div class="popup-questionario" id="popup_sim_questionario">
+            <div class="conteudo-popup-questionario">
+                <div class="quiz-header">
+                    <h1>Alimentos</h1><br>
+                    <span>
+                        Insira a quantidade que consumiu nesta manhã
+                    </span>
+                </div>
+                <div class="quiz-corpo">
+                    <ul>
+                        <li>
+                            <label for="" class="label-input">Pão </label><br>
+                            <input type="number" class="input-user" value="0" id="pao"><br>
+                            <span>(Qtd 100g)</span>
+                        </li>
+                        <li>
+
+                        </li>
+                        <li>
+                            <label for="" class="label-input">Pão de Queijo</label><br>
+                            <input type="number" class="input-user" value="0" id="paoDeQueijo"><br>
+                            <span>(Qtd 100g)</span>
+                        </li>
+                        <li>
+                            <label for="" class="label-input">Torrada</label><br>
+                            <input type="number" class="input-user" value="0" id="torrada"><br>
+                            <span>(Qtd 100g)</span>
+                        </li>
+                        <li>
+                            <label for="" class="label-input">Tapioca</label><br>
+                            <input type="number" class="input-user" value="0" id="tapioca"><br>
+                            <span>(Qtd 100g)</span>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <label for="" class="label-input">Ovo</label><br>
+                            <input type="number" class="input-user" value="0" id="ovo"><br>
+                            <span>(Qtd 100g)</span>
+                        </li>
+                        <li>
+                            <label for="" class="label-input">Carolina</label><br>
+                            <input type="number" class="input-user" value="0" id="carolina"><br>
+                            <span>(Qtd 100g)</span>
+                        </li>
+                        <li>
+                            <label for="" class="label-input">Sonho</label><br>
+                            <input type="number" class="input-user" value="0" id="sonho"><br>
+                            <span>(Qtd 100g)</span>
+                        </li>
+                        <li>
+                            <label for="" class="label-input">Bolo </label><br>
+                            <input type="number" class="input-user" value="0" id="bolo"><br>
+                            <span>(Qtd 100g)</span>
+                        </li>
+                    </ul>
+
+                </div>
+                <button onclick="continuar_quest1()" class="botao-questionario">CONTINUAR</button>
+            </div>
+        </div>
+
+        <div class="popup-questionario2 disable-cadastro" id="popup_sim_questionario2">
+            <div class="conteudo-popup-questionario2">
+                <div class="seta-quest">
+                    <img src="./images/seta-quest.png" alt="" onclick="voltar_quest()">
+                </div>
+                <div class="quiz-header">
+                    <h1>Acompanhamentos</h1><br>
+                    <span>
+                        E quais acompanhamentos?
+                    </span>
+                </div>
+                <div class="quiz-corpo">
+                    <ul>
+                        <li>
+                            <label for="" class="label-input">Manteiga</label><br>
+                            <input type="number" class="input-user" value="0" id="manteiga"><br>
+                            <span>(Qtd por fatias)</span>
+                        </li>
+                        <li>
+                            <label for="" class="label-input">Nutella</label><br>
+                            <input type="number" id="nutella" value="0" class="input-user"><br>
+                            <span>(Qtd por fatias)</span>
+                        </li>
+                        <li>
+                            <label for="" class="label-input">Requeijão </label><br>
+                            <input type="number" id="requeijao" value="0" class="input-user"><br>
+                            <span>(Qtd por fatias)</span>
+                        </li>
+                        <li>
+                            <label for="" class="label-input">Doce de Leite</label><br>
+                            <input type="number" id="doceDeLeite" value="0" class="input-user"><br>
+                            <span>(Qtd por fatias)</span>
+                        </li>
+
+                    </ul>
+                    <ul>
+                        <li>
+                            <label for="" class="label-input">Geleia</label><br>
+                            <input type="number" id="geleia" value="0" class="input-user"><br>
+                            <span>(Qtd por fatias)</span>
+                        </li>
+                        <li>
+                            <label for="" class="label-input">Queijo </label><br>
+                            <input type="number" id="queijo" value="0" class="input-user"><br>
+                            <span>(Qtd fatias)</span>
+                        </li>
+                        <li>
+                            <label for="" class="label-input">Presunto</label><br>
+                            <input type="number" id="presunto" value="0" class="input-user"><br>
+                            <span>(Qtd fatias)</span>
+                        </li>
+                        <li>
+                            <label for="" class="label-input">Mortadela</label><br>
+                            <input type="number" id="mortadela" value="0" class="input-user"><br>
+                            <span>(Qtd fatias)</span>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <button onclick="continuar_quest2()" class="botao-questionario">CONTINUAR</button>
+            </div>
+        </div>
+
+        <div class="popup-questionario2 disable-cadastro" id="popup_sim_questionario3">
+            <div class="conteudo-popup-questionario2">
+                <div class="seta-quest">
+                    <img src="./images/seta-quest.png" alt="" onclick="voltar_quest2()">
+                </div>
+                <div class="quiz-header">
+                    <h1>Bebidas</h1><br>
+                    <span>
+                        Bebeu algo?
+                    </span>
+                </div>
+                <div class="quiz-corpo">
+                    <ul>
+                        <li>
+                            <label for="" class="label-input">Café</label><br>
+                            <input type="number" class="input-user" value="0" id="cafe"><br>
+                            <span>(100ml)</span>
+                        </li>
+                        <li>
+                            <label for="" class="label-input">Refrigerante</label><br>
+                            <input type="number" id="refrigerante" value="0" class="input-user"><br>
+                            <span>(100ml)</span>
+                        </li>
+                        <li>
+                            <label for="" class="label-input">Iorgute</label><br>
+                            <input type="number" id="iorgute" value="0" class="input-user"><br>
+                            <span>(100ml)</span>
+                        </li>
+                        <li>
+                            <label for="" class="label-input">Achocolatado</label><br>
+                            <input type="number" id="achocolatado" value="0" class="input-user"><br>
+                            <span>(100ml)</span>
+                        </li>
+
+                    </ul>
+                    <ul>
+                        <li>
+                            <label for="" class="label-input">Agua</label><br>
+                            <input type="number" id="agua" value="0" class="input-user"><br>
+                            <span>(100ml)</span>
+                        </li>
+                        <li>
+                            <label for="" class="label-input">Vitamina de Banana</label><br>
+                            <input type="number" id="vitamina" value="0" class="input-user"><br>
+                            <span>(100ml)</span>
+                        </li>
+                        <li>
+                            <label for="" class="label-input">Chá</label><br>
+                            <input type="number" id="cha" value="0" class="input-user"><br>
+                            <span>(100ml)</span>
+                        </li>
+                        <li>
+                            <label for="" class="label-input">Suco Laranja</label><br>
+                            <input type="number" id="suco" value="0" class="input-user"><br>
+                            <span>(100ml)</span>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <button onclick="enviar()" class="botao-questionario">ENVIAR</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-cafe">
+            <img src="./images/icon_footer.png" alt="">
+        </div>
+        <div class="redes">
+            <div class="github">
+                <a href="https://github.com/JRamonPere">
+                    <img src="./images/github.png" alt="">
+                    <span>/JRamonPere</span>
+                </a>
+            </div>
+            <div class="linkedin">
+                <a href="https://www.linkedin.com/in/ramon-pereira-5293b5215/">
+                    <img src="./images/linkedin.png" alt="">
+                    <span>/Ramon Pereira</span>
+                </a>
+            </div>
+        </div>
+        <div class="footer-seta">
+            <a href="#">
+                <img src="./images/Seta-Cima-Png-removebg-preview.png" alt="" class="seta-icon">
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    function enviar() {
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var idUsuario = sessionStorage.ID_USUARIO
+        var valorImc = parseInt(sessionStorage.PESO_USUARIO / (sessionStorage.ALTURA_USUARIO * sessionStorage.ALTURA_USUARIO))
+        var paoVar = pao.value;
+        var paoDeQueijoVar = paoDeQueijo.value;
+        var torradaVar = torrada.value;
+        var tapiocaVar = tapioca.value;
+        var ovoVar = ovo.value;
+        var carolinaVar = carolina.value;
+        var sonhoVar = sonho.value;
+        var boloVar = bolo.value;
+        var manteigaVar = manteiga.value;
+        var nutellaVar = nutella.value;
+        var requeijaoVar = requeijao.value;
+        var doceDeLeiteVar = doceDeLeite.value;
+        var geleiaVar = geleia.value;
+        var queijoVar = queijo.value;
+        var presuntoVar = presunto.value;
+        var mortadelaVar = mortadela.value;
+        var cafeVar = cafe.value;
+        var refrigeranteVar = refrigerante.value;
+        var iorguteVar = iorgute.value;
+        var achocolatadoVar = achocolatado.value;
+        var aguaVar = agua.value;
+        var vitaminaVar = vitamina.value;
+        var chaVar = cha.value;
+        var sucoVar = suco.value;
+
+        console.log(`${valorImc}`);
+
+
+        if (paoVar == "" && paoDeQueijoVar == "" && torradaVar == "" && tapiocaVar == "" && ovoVar == "" && carolinaVar == "" && sonhoVar == "" && boloVar == "") {
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Cadastro não realizado',
+                text: `Preencha todos os campos!`,
+            })
+            return false;
+        }
+        else {
+            Swal.fire(
+                'Cadastro realizado!'
+            )
+        }
+
+        // Enviando o valor da nova input
+        fetch(`/usuarios/enviar/${idUsuario}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                paoServer: paoVar,
+                paoDeQueijoServer: paoDeQueijoVar,
+                torradaServer: torradaVar,
+                tapiocaServer: tapiocaVar,
+                ovoServer: ovoVar,
+                carolinaServer: carolinaVar,
+                sonhoServer: sonhoVar,
+                boloServer: boloVar,
+                manteigaServer: manteigaVar,
+                nutellaServer: nutellaVar,
+                requeijaoServer: requeijaoVar,
+                doceDeLeiteServer: doceDeLeiteVar,
+                geleiaServer: geleiaVar,
+                queijoServer: queijoVar,
+                presuntoServer: presuntoVar,
+                mortadelaServer: mortadelaVar,
+                cafeServer: cafeVar,
+                refrigeranteServer: refrigeranteVar,
+                iorguteServer: iorguteVar,
+                achocolatadoServer: achocolatadoVar,
+                aguaServer: aguaVar,
+                vitaminaServer: vitaminaVar,
+                chaServer: chaVar,
+                sucoServer: sucoVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                paoVar = paoVar * 265
+                paoDeQueijoVar = paoDeQueijoVar * 408
+                torradaVar = torradaVar * 313
+                tapiocaVar = tapiocaVar * 130
+                ovoVar = ovoVar * 155
+                carolinaVar = carolinaVar * 334
+                sonhoVar = sonhoVar * 459
+                boloVar = boloVar * 257
+                manteigaVar = manteigaVar * 71
+                nutellaVar = nutellaVar * 53
+                requeijaoVar = requeijaoVar * 34
+                doceDeLeiteVar = doceDeLeiteVar * 31
+                geleiaVar = geleiaVar * 27
+                queijoVar = queijoVar * 28
+                presuntoVar = presuntoVar * 17
+                mortadelaVar = mortadelaVar * 31
+                cafeVar = 0
+                refrigeranteVar = refrigeranteVar * 41
+                iorguteVar = iorguteVar * 59
+                achocolatadoVar = achocolatadoVar * 83
+                aguaVar = 0
+                vitaminaVar = vitaminaVar * 245
+                chaVar = 0
+                sucoVar = sucoVar * 45
+
+                totalKcal = sucoVar + chaVar + vitaminaVar + aguaVar + achocolatadoVar + iorguteVar + refrigeranteVar + cafeVar + mortadelaVar + presuntoVar + queijoVar + geleiaVar + doceDeLeiteVar + requeijaoVar + nutellaVar + manteigaVar + boloVar + sonhoVar + carolinaVar + ovoVar + tapiocaVar + torradaVar + paoDeQueijoVar + paoVar;
+
+                if (valorImc < 18) {
+                    if (totalKcal < 500) {
+                        Swal.fire({
+                            title: `Consumo Total Kcal: ${totalKcal}!`,
+                            html: '<b>Seu consumo Kcal está muito abaixo. Tome Cuidado!!<b>',
+                            imageUrl: 'https://media.tenor.com/D_OpN3sWE3QAAAAM/befine-takecare.gif',
+                            imageWidth: 400,
+                            imageHeight: 200,
+                            imageAlt: 'Custom image',
+                        })
+                        setTimeout(function () {
+                            window.location = "/dashboard/dashboard.html";
+                        }, 7000);
+
+                    } else if (totalKcal >= 500 && totalKcal <= 600) {
+                        Swal.fire({
+                            title: `Consumo Total Kcal: ${totalKcal}!`,
+                            html: '<b>Seu consumo Kcal está mediano, Se alimente um pouco mais.<b>',
+                            imageUrl: 'https://media.tenor.com/pE_YL3nfwZsAAAAd/theoffice-jim.gif',
+                            imageWidth: 400,
+                            imageHeight: 200,
+                            imageAlt: 'Custom image',
+                        })
+                        setTimeout(function () {
+                            window.location = "/dashboard/dashboard.html";
+                        }, 7000);
+                    } else {
+                        Swal.fire({
+                            title: `Consumo Total Kcal: ${totalKcal}!`,
+                            html: '<b>Seu consumo Kcal está ideal, Continue assim!.<b>',
+                            imageUrl: 'https://media.tenor.com/mKfeCtD5EukAAAAC/the-office-the.gif',
+                            imageWidth: 400,
+                            imageHeight: 200,
+                            imageAlt: 'Custom image',
+                        })
+                        setTimeout(function () {
+                            window.location = "/dashboard/dashboard.html";
+                        }, 7000);
+                    }
+
+
+                } else if (valorImc >= 18 && valorImc < 25) {
+
+                    if (totalKcal < 500) {
+                        Swal.fire({
+                            title: `Consumo Total Kcal: ${totalKcal}!`,
+                            html: '<b>Seu consumo Kcal está mediano, Se alimente um pouco mais.<b>',
+                            imageUrl: 'https://media.tenor.com/pE_YL3nfwZsAAAAd/theoffice-jim.gif',
+                            imageWidth: 400,
+                            imageHeight: 200,
+                            imageAlt: 'Custom image',
+                        })
+                        setTimeout(function () {
+                            window.location = "/dashboard/dashboard.html";
+                        }, 7000);
+                    } else if (totalKcal >= 500 && totalKcal <= 600) {
+                        Swal.fire({
+                            title: `Consumo Total Kcal: ${totalKcal}!`,
+                            html: '<b>Seu consumo Kcal está ideal, Continue assim!.<b>',
+                            imageUrl: 'https://media.tenor.com/mKfeCtD5EukAAAAC/the-office-the.gif',
+                            imageWidth: 400,
+                            imageHeight: 200,
+                            imageAlt: 'Custom image',
+                        })
+                        setTimeout(function () {
+                            window.location = "/dashboard/dashboard.html";
+                        }, 7000);
+                    } else {
+                        Swal.fire({
+                            title: `Consumo Total Kcal: ${totalKcal}!`,
+                            html: '<b>Seu consumo Kcal está mediano, Se alimente um pouco menos.<b>',
+                            imageUrl: 'https://media.tenor.com/pE_YL3nfwZsAAAAd/theoffice-jim.gif',
+                            imageWidth: 400,
+                            imageHeight: 200,
+                            imageAlt: 'Custom image',
+                        })
+                        setTimeout(function () {
+                            window.location = "/dashboard/dashboard.html";
+                        }, 7000);
+                    }
+                } else if (valorImc >= 25) {
+
+                    if (totalKcal < 400) {
+                        Swal.fire({
+                            title: `Consumo Total Kcal: ${totalKcal}!`,
+                            html: '<b>Seu consumo Kcal está ideal, Continue assim!.<b>',
+                            imageUrl: 'https://media.tenor.com/mKfeCtD5EukAAAAC/the-office-the.gif',
+                            imageWidth: 400,
+                            imageHeight: 200,
+                            imageAlt: 'Custom image',
+                        })
+                        setTimeout(function () {
+                            window.location = "/dashboard/dashboard.html";
+                        }, 7000);
+
+                    } else if (totalKcal >= 400 && totalKcal <= 500) {
+                        Swal.fire({
+                            title: `Consumo Total Kcal: ${totalKcal}!`,
+                            html: '<b>Seu consumo Kcal está mediano, Se alimente um pouco menos.<b>',
+                            imageUrl: 'https://media.tenor.com/pE_YL3nfwZsAAAAd/theoffice-jim.gif',
+                            imageWidth: 400,
+                            imageHeight: 200,
+                            imageAlt: 'Custom image',
+                        })
+                        setTimeout(function () {
+                            window.location = "/dashboard/dashboard.html";
+                        }, 7000);
+                    } else {
+                        Swal.fire({
+                            title: `Consumo Total Kcal: ${totalKcal}!`,
+                            html: '<b>Seu consumo Kcal está muito alto. Tome Cuidado!!<b>',
+                            imageUrl: 'https://media.tenor.com/D_OpN3sWE3QAAAAM/befine-takecare.gif',
+                            imageWidth: 400,
+                            imageHeight: 200,
+                            imageAlt: 'Custom image',
+                        })
+                        setTimeout(function () {
+                            window.location = "/dashboard/dashboard.html";
+                        }, 7000);
+                    }
+                } 
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+    }
+
+</script>

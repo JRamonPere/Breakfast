@@ -18,10 +18,12 @@
             <ul class="navlist">
                 <aside id="menu_oculto" class="menu_oculto">
                     <a href="javascript:void(0)" class="botao_fechar" onclick="menu_fechar()">&times;</a>
-                    <a href="./dashboard/mural.html"><img src="images/avaliacao.png" alt="">Avaliações</a>
-                    <a href=""><img src="./images/locais.png" alt=""> Locais</a>
-                    <a href="./dashboard/dashboard.html"> <img src="./images/ranking.png" alt=""> Ranking</a>
-                    <a href="./receitas.html"> <img src="./images/receita.png" alt=""> Receitas</a>
+                    <a href="#"> <img src="./images/home.png" alt=""> Home</a>
+                    <a href="./questionario.html"><img src="./images/questionarioIcon.png" alt=""> Questionário</a>
+                    <a href="./dashboard/dashboard.html"> <img src="./images/ranking.png" alt="">Dashboard</a>
+                    <a href="./receitas(p).html"> <img src="./images/receita.png" alt=""> Receitas</a>
+                    <a href="javascript:void(0)" onclick="limparSessao()" id="button-sair"> <img src="./images/logout.png" alt="">Sair</a>
+                </aside>
                 </aside>
                 <li>
                     <span class="botao_menu" id="botao_menu" onclick="abrir_menu()">&#9776;</span>
@@ -120,6 +122,13 @@
         <div class="linha">
         </div>
     </div>
+
+    <div class="container-img">
+        <div class="img-footer" id="div_exibir">
+        </div>
+        <span>&hearts;</span>
+    </div>
+
     <div class="footer">
         <div class="footer-cafe">
             <img src="./images/icon_footer.png" alt="">
@@ -147,3 +156,16 @@
 </body>
 
 </html>
+<script>
+    var imagens = [`<img src="./images/img_footer_cafe1.jpg" alt="">`, `<img src="./images/img_footer_cafe2.jpg" alt="">`, `<img src="./images/img_footer_cafe3.jpg" alt="">`, `<img src="./images/img_fundo_pi.jpg" alt="">`
+    ]
+
+    var numero = parseInt(Math.random() * imagens.length)
+
+    div_exibir.innerHTML = `${imagens[numero]}`
+
+
+
+
+
+</script>

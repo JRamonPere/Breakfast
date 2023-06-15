@@ -2,6 +2,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto+Serif:wght@400;500;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
+body::-webkit-scrollbar {
+    width: 10px;               /* largura da scroll */
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent   /* cor da área de trás da scroll */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #FFAF1D;    /* cor da barra móvel da scroll */
+    border-radius: 20px;       /* borda arredondada */
+    border: 3px solid #fff; /* padding */
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -170,8 +185,7 @@
     width: 100%;
 }
 
-.navlist li,
-a {
+.navlist li, a {
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
@@ -256,6 +270,15 @@ a {
     width: 100%;        
     background-image: url(./images/img_fundo_receita_escuro.jpg);
 }
+.container-questionario{
+    display: flex;
+    justify-content: center;
+    height: 95vh;
+    width: 100%;        
+    background-image: url(./images/img_fundo_receita_escuro.jpg);
+    margin-bottom: 50px;
+}
+
 
 .box {
     margin-top: 90px;
@@ -291,6 +314,7 @@ a {
     margin-top: 200px;
     margin-left: 50px;
     font-size: 25px;
+
 }
 .receita-txt  {
     margin-top: 10px;
@@ -329,6 +353,7 @@ a {
     width: 440px;
     color: #ffff;
     font-size: 25px;
+    font-weight: bold;
 }
 
 .container-conteudo {
@@ -358,6 +383,7 @@ a {
 .div-titulo spam {
     font-weight: bold;
     font-size: 38px;
+    color: #9A5323;
 }
 
 .div-txt {
@@ -367,9 +393,9 @@ a {
 }
 
 .div-txt spam {
-    font-weight: 600;
+    font-weight: bold;
     font-size: 24px;
-    color: grey;
+    color:#9A5323;
 }
 
 .conteiner-linha {
@@ -414,14 +440,26 @@ a {
     margin-top: 20px;
     text-align: center;
     font-weight: bold;
-    color: #2F1608;
+    color:#9A5323
 }
 
 .valor .texto-img {
     font-weight: bold;
-    color: grey;
+    color:#9A5323;
 }
 
+.container-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.container-img img {
+    width: 600px;
+    height: 400px;
+}
 .receitas{
     width: 100%;
 }
@@ -436,7 +474,6 @@ a {
     width: 50%;
     display: flex;
     justify-content: center;
-
 }
 .box-fundo1{
     margin-top: 50px;
@@ -466,6 +503,9 @@ a {
     width: 300px;
     border-radius: 10px;
     box-shadow:  6px 6px 15px 0.01px black;
+}
+#button-sair{
+    margin-top: 300px;          
 }
 .container-txt1  {
     width: 50%;
@@ -551,7 +591,7 @@ a {
     margin-bottom: 10px;
     border-radius: 20px;
     background: #ffff;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .conteudo-popup button {
@@ -589,7 +629,7 @@ a {
 
 .lembrar-senha label {
     font-size: 13px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif    
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;    
 }
 
 .lembrar-senha a {
@@ -621,6 +661,20 @@ a {
     top: 0;
     left: 0;
 }
+.popup-questionario {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+.popup-questionario2 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
 
 .disable-cadastro {
     display: none;
@@ -637,7 +691,94 @@ a {
     border: 0.5px solid rgb(255, 175, 29);
     color: #ffff;
 }
+.conteudo-popup-questionario {
+    width: 600px;
+    height: 450px;
+    padding: 30px 15px;
+    margin: 50px auto;
+    background-color: rgb(0, 0, 0, 0.5);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 20px 35px rgb(255, 175, 29, 0.3);
+    border: 0.5px solid rgb(255, 175, 29);
+    color: #ffff;
+}
+.conteudo-popup-questionario2 {
+    width: 600px;
+    height: 450px;
+    padding: 30px 15px;
+    margin: 50px auto;
+    background-color: rgb(0, 0, 0, 0.5);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 20px 35px rgb(255, 175, 29, 0.3);
+    border: 0.5px solid rgb(255, 175, 29);
+    color: #ffff;
+    position: relative;
+}
+.conteudo-popup-questionario2 .seta-quest {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 20px;
+}
+.seta-quest  img {
+    width: 25px;
+    cursor: pointer;
+}
 
+
+.quiz-corpo{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+.quiz-corpo ul li{
+    margin-bottom: 15px;
+    list-style: none;
+}
+.quiz-corpo li span {
+    font-size: 12px;
+}
+.quiz-header h1{
+    margin-bottom: -10px;
+}
+
+.input-user{
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    width: 100px;
+}
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+}
+.label-input{
+    font-weight: bold;
+}
+.botao-questionario {
+    font-weight: bold;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: transparent;
+    color: #FFAF1D;
+    border: 1px solid #FFAF1D;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s ;
+  }
+
+  .botao-questionario:hover {
+    background-color: #FFAF1D;
+    color: #fff;
+    border: 1px solid #fff;
+  }
 .fechar-popup-cadastro {
     display: flex;
     justify-content: end;
@@ -662,7 +803,7 @@ a {
     margin-bottom: 10px;
     border-radius: 20px;
     background: #ffff;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .conteudo-popup-cadastro button {

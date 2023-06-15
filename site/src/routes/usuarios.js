@@ -16,6 +16,14 @@ router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })
 
+router.post("/enviar/:idUsuario", function (req, res) {
+    usuarioController.enviar(req, res);
+})
+
+router.post("/calcular_imc/:idUsuario", function (req, res) {
+    usuarioController.calcular_imc(req, res);
+})
+
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });

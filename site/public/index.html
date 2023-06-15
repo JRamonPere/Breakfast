@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./style(p).css">
     <script src="./js/funcoes.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.11/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.11/dist/sweetalert2.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -18,12 +20,10 @@
             <ul class="navlist">
                 <aside id="menu_oculto" class="menu_oculto">
                     <a href="javascript:void(0)" class="botao_fechar" onclick="menu_fechar()">&times;</a>
-                    <a href="javascript:void(0)" onclick="mostrar_popup_login()"><img src="images/avaliacao.png"
-                            alt="">Avaliações</a>
-                    <a href="javascript:void(0) " onclick="mostrar_popup_login()"><img src="./images/locais.png" alt="">
-                        Locais</a>
+                    <a href="javascript:void(0)" onclick="mostrar_popup_login()"><img
+                            src="./images/questionarioIcon.png" alt=""> Questionário</a>
                     <a href="javascript:void(0) " onclick="mostrar_popup_login()"> <img src="./images/ranking.png"
-                            alt=""> Ranking</a>
+                            alt=""> Dashboard</a>
                     <a href="javascript:void(0) " onclick="mostrar_popup_login()"> <img src="./images/receita.png"
                             alt=""> Receitas</a>
                 </aside>
@@ -124,6 +124,15 @@
         <div class="linha">
         </div>
     </div>
+
+    <div class="container-img">
+        <div class="img-footer" id="div_exibir">
+        </div>
+        <span>&hearts;</span>
+    </div>
+
+
+
     <div class="footer">
         <div class="footer-cafe">
             <img src="./images/icon_footer.png" alt="">
@@ -191,12 +200,26 @@
             </div>
         </div>
     </div>
+    <!-- Tela IMC -->
+
+    <div class="popup disable" id="popup_sim_imc">
+        <div class="conteudo-popup">
+            <h1>Calcule seu IMC</h1><br>
+            <form action="#">
+                <input type="number" placeholder="Altura" id="altura_input">
+                <input type="number" placeholder="Peso" id="peso_input">
+            </form>
+            <button onclick="calcular_imc()">Calcular</button>
+        </div>
     </div>
-    </div>
+    <link rel="stylesheet" href="./dashboard/dashboard.html">
 </body>
+<!-- Tela IMC -->
 
 </html>
 <script>
+
+
     function cadastrar() {
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -204,17 +227,19 @@
         var emailVar = email.value;
         var senhaVar = senha.value;
         var confirmacaoSenhaVar = confirmarSenha.value;
-
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
 
-            //mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-
-            //finalizarAguardar();
+            Swal.fire({
+                icon: 'error',
+                title: 'Cadastro não realizado',
+                text: `Preencha todos os campos!`,
+            })
             return false;
         }
         else {
-            alert(`Cadastro realizado`)
-            //setInterval(sumirMensagem, 5000)
+            Swal.fire(
+                'Cadastro realizado!'
+            )
         }
 
         // Enviando o valor da nova input
@@ -237,7 +262,7 @@
             if (resposta.ok) {
 
                 setTimeout(mostrar_popup_login(), 2500)
-                limparFormulario();
+
 
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
@@ -248,19 +273,22 @@
 
         return false;
     }
+
+
     function entrar() {
-
-
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
+            Swal.fire({
+                icon: 'error',
+                title: 'Login não realizado',
+                text: `Preencha todos os campos!`,
+            })
             return false;
         }
         else {
+
             //setInterval(sumirMensagem, 5000)
         }
 
@@ -288,18 +316,59 @@
 
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.PESO_USUARIO = json.peso;
+                    sessionStorage.ALTURA_USUARIO = json.altura;
 
-                    setTimeout(function () {
-                        window.location = "./receitas(p).html";
-                    }, 1000); // apenas para exibir o loading
+                    console.log(json.id)
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
 
+                    if (json.idImc == null) {
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Signed in successfully'
+                        })
+                        setTimeout(mostrar_popup_imc(), 3000)
+                    } else {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            }
+                        })
+
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Signed in successfully'
+                        })
+                        setTimeout(function () {
+                            window.location = "./questionario.html";
+                        }, 3000);
+
+                    }
                 });
 
             } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
+                Swal.fire({
+                    title: 'Opss..',
+                    icon: 'warning',
+                    html: '<b>Email ou senha invalido!<b>',
+                })
                 resposta.text().then(texto => {
                     console.error(texto);
                     finalizarAguardar(texto);
@@ -313,4 +382,83 @@
         return false;
     }
 
+    function calcular_imc() {
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var idUsuario = sessionStorage.ID_USUARIO
+        var alturaVar = Number(altura_input.value);
+        var pesoVar = Number(peso_input.value);
+        var valorImc = parseInt(Number(pesoVar / (alturaVar * alturaVar)))
+        if (alturaVar == "" || pesoVar == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Cadastro não realizado',
+                text: `Preencha todos os campos!`,
+            })
+            return false;
+        }
+        else {
+            if (valorImc < 18) {
+                Swal.fire({
+                    title: `IMC: ${valorImc}!`,
+                    html: '<b>Recomenda-se consumir entre 600-700 kcal no café da manhã para aumentar o peso.<b>',
+                    imageUrl: 'https://media.tenor.com/yIyZlpkh1nQAAAAC/comilona-festin.gif',
+                    imageWidth: 400,
+                    imageHeight: 200,
+                    imageAlt: 'Custom image',
+                })
+                setTimeout(mostrar_popup_login(), 3000);
+            } else if (valorImc >= 18 && valorImc < 25) {
+                Swal.fire({
+                    title: `IMC: ${valorImc}!`,
+                    html: '<b>Recomenda-se consumir entre 500-600 kcal no café da manhã para manter o peso saudável.<b>',
+                    imageUrl: 'https://media.tenor.com/21p1AuG69agAAAAC/im-awake-exercise.gif',
+                    imageWidth: 400,
+                    imageHeight: 200,
+                    imageAlt: 'Custom image',
+                })
+                setTimeout(mostrar_popup_login(), 3000);
+            } else if (valorImc >= 25) {
+                Swal.fire({
+                    title: `IMC: ${valorImc}!`,
+                    html: '<b>Recomenda-se consumir entre 300-400 kcal no café da manhã para reduzir o peso.<b>',
+                    imageUrl: 'https://media.tenor.com/q_mK_y7FcHoAAAAd/michael-scott-office.gif',
+                    imageWidth: 400,
+                    imageHeight: 200,
+                    imageAlt: 'Custom image',
+                })
+                setTimeout(mostrar_popup_login(), 3000);
+            } 
+        }
+
+        // Enviando o valor da nova input
+        fetch(`/usuarios/calcular_imc/${idUsuario}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                alturaServer: alturaVar,
+                pesoServer: pesoVar,
+                idUsuario: idUsuario
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+
+                setTimeout(mostrar_popup_login(), 3000);
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o calculo!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+    }
 </script>
